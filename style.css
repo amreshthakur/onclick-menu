@@ -8,18 +8,83 @@
 
 body {
     transition: background-color 0.5s ease;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Spacing utilities */
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+/* Flex utilities */
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar {
     background-color: #000;
-    color: #fff;
+    padding: 1rem;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-item {
+    margin-right: 1rem;
+}
+
+/* Big container styles */
+.big-container {
+    flex-basis: 100%;
 }
 
 .big-container p {
     color: #f9f9f9;
     font-size: 20px;
-    padding: 5px 10px;
+    flex-basis: 10%;
 }
 
+@media screen and (max-width: 600px) {
+    .big-container p {
+        font-size: 16px;
+    }
+}
+
+/* Sub-container styles */
 .sub-container {
-    margin: 18px 0 25px -20px;
+    margin: 15px 0 25px -20px;
     color: #fff;
     display: inline;
 }
@@ -37,8 +102,9 @@ body {
         display: block;
         position: relative;
         top: 5px;
-        left: 0;
-        text-align: center;
+        left: 30px;
+        z-index: 1;
+        user-select: none;
     }
 
     .sub-container p {
@@ -52,7 +118,7 @@ body {
     }
 
     .sub-container p:hover {
-        color: #09f845;
+        color: rgb(9, 251, 102);
     }
 
     .sub-container input {
@@ -65,7 +131,6 @@ body {
         cursor: pointer;
         opacity: 0;
         z-index: 2;
-        -webkit-touch-callout: none;
     }
 
     .sub-container span {
@@ -73,7 +138,6 @@ body {
         width: 33px;
         height: 4px;
         margin-bottom: 5px;
-        margin-left: 30px;
         position: relative;
         background: #f5f5f5;
         border-radius: 3px;
@@ -111,23 +175,22 @@ body {
         transform: none;
     }
 
-    .navbar-lists {
+    .tab {
         position: absolute;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+        width: 360px;
+        margin: -10px;
+        padding: 0px;
         padding-top: 125px;
-        background: #000;
+        background: #000000;
         list-style-type: none;
-        -webkit-font-smoothing: antialiased;
         transform-origin: 0% 0%;
-        transform: translateX(-100%);
+        transform: translate(-100%, 0);
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     }
 
-    .navbar-lists {
-        padding: 10px 20px;
-        font-size: 18px;
+    .tab {
+        padding: 10px 0;
+        font-size: 25px;
         color: #fff;
     }
 }
@@ -136,7 +199,7 @@ body {
     display: flex;
     color: #09f845;
     text-align: center;
-    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 540px;
 }
 
@@ -147,13 +210,14 @@ body {
     }
 }
 
-.navbar-menubar {
+/* Tab links styles */
+.tab-links {
     cursor: pointer;
     position: relative;
     display: block;
 }
 
-.navbar-menubar::after {
+.tab-links::after {
     content: '';
     height: 3px;
     background: #09f845;
@@ -163,17 +227,17 @@ body {
     transition: 0.5s;
 }
 
-.navbar-menubar:hover {
+.tab-links:hover {
     color: #25ff09;
     font-weight: bold;
 }
 
-.navbar-menubar.active-link::after {
+.tab-links.active-link::after {
     width: 100%;
 }
 
 @media screen and (max-width: 600px) {
-    .navbar-menubar::after {
+    .tab-links::after {
         content: '';
         width: 0;
         height: 5px;
@@ -184,6 +248,7 @@ body {
     }
 }
 
+/* Tab contents styles */
 .tab-contents ul li {
     list-style: none;
     margin: 10px 0;
@@ -206,9 +271,8 @@ h3 {
     font-size: 15px;
     line-height: 25px;
     text-align: center;
-    letter-spacing: 0.6px;
+    letter-spacing: .6px;
     word-wrap: break-word;
     margin: 20px;
     border-radius: 1%;
-    overflow: hidden;
 }
